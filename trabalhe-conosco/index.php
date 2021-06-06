@@ -5,32 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/logo.ico" />
-    <link href="forms.css" rel="stylesheet">
+    <link href="../css/forms.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-    <link href="bar.css" rel="stylesheet" type="text/css">
-    <script src="alert1.js"></script>
-    <link rel="stylesheet" href="alert1.css">
+    <link href="../css/bar.css" rel="stylesheet" type="text/css">
+    <script src="../js/alert1.js"></script>
+    <link rel="stylesheet" href="../css/alert1.css">
     <title>Entre em Contato</title>
 </head>
 <body>
     
 <header class="header">
-  <a href="index.html"><img src="img\logo.png" id="logo1" title="Projeto Midia"></a>
+  <a href="index.html"><img src="../img\logo.png" id="logo1" title="Projeto Midia"></a>
   <input class="menu-btn" type="checkbox" id="menu-btn" />
   <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
   <ul class="menu">
-    <li><a href="index.html" id='QS' onclick="n1()">VOLTAR PARA HOME</a></li>
+    <li><a href="../index.html" id='QS' onclick="n1()">VOLTAR PARA HOME</a></li>
     <li onmouseover="this.style.backgroundColor='#f4f4f4'" onmouseout="this.style.backgroundColor='#ffffff'"
      style="cursor:pointer"><a id="config_sm" href="https://linka.ai/projetomidia" target="_blank" title="Saiba mais">⠀
-     <img src="img/saiba_mais.png" width="55px">⠀</img></a></li>
+     <img src="../img/saiba_mais.png" width="55px">⠀</img></a></li>
   </ul>
 </header>
 <br><br><br><br><br><br>
 
 <div id="center" class="login-box">
     <h2>TRABALHE CONOSCO</h2>
-    <form name="trabalhe_conosco"  action="<?php echo $_SERVER['PHP_SELF'];?>" method='POST'>
+    <form name="trabalhe_conosco" action="<?php echo $_SERVER['PHP_SELF'];?>" method='POST'>
       <div class="user-box">
         <input type="text" name="nome" minlength="3" maxlength="128" required>
         <label>Nome</label>

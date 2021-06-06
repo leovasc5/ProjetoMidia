@@ -2,7 +2,7 @@ body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
     font-family: 'Mukta', sans-serif;
-    background-image: url('img/background.jpg');
+    background-image: url('../img/background.jpg');
 }
 
 h2{
