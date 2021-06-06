@@ -190,4 +190,6 @@ function formulario_incompleto(){
 
   $obj_usuario = new usuario($nome, $idade, $email, $cidade, $genero, $area, $voce, $data);
   }
+
+  //Vamos mudar isso
 ?>
