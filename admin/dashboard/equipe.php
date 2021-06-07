@@ -84,7 +84,7 @@ while($elemento = mysqli_fetch_row($res)){
 
 <div id="center" class="login-box">
     <h2>ADICIONAR MEMBRO</h2>
-    <form name="" action="adicionar.php?num1=<?php echo $n1;?>" method='POST'>
+    <form name="" action="controller/adicionar.php?num1=<?php echo $n1;?>" method='POST'>
       <div class="user-box">
         <input type="text" name="nome" maxlenght="32" required>
         <label>Nome</label>

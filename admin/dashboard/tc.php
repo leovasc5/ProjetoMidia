@@ -15,6 +15,7 @@ if(isset($_SESSION["numLogin"])){
 }else{
     exit;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -35,12 +36,12 @@ if(isset($_SESSION["numLogin"])){
 <body>
     
 <header class="header">
-  <img src="../../img\logo.png" id="logo1" title="Projeto Midia">
+  <img src="../../img/logo.png" id="logo1" title="Projeto Midia">
   <input class="menu-btn" type="checkbox" id="menu-btn" />
   <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
   <ul class="menu">
-    <li><a id='QS' class="neg">ENTRE EM CONTATO</a></li>
-    <li><a href="tc.php?<?php echo "num1=".$n1;?>" id='PA'>TRABALHE CONOSCO</a></li>
+    <li><a href="ec.php?<?php echo "num1=".$n1;?>" id='QS'>ENTRE EM CONTATO</a></li>
+    <li><a id='PA' class="neg">TRABALHE CONOSCO</a></li>
     <li><a href="equipe.php?<?php echo "num1=".$n1;?>" id='EQ'>EQUIPE</a></li>
     <li><a href="#c3" id='EQ'  onmouseover="this.style.backgroundColor='#ff0000'; this.style.color='#ffffff'" 
     onmouseout="this.style.backgroundColor='#ffffff';this.style.color='#353839'" onclick="location.href='destroy.php'">SAIR</a></li>
@@ -51,7 +52,7 @@ if(isset($_SESSION["numLogin"])){
 <?php
 
 include '../../assets/conexao.inc';
-$sql = "SELECT* FROM insc_ctt WHERE verificado = 0 ORDER BY data DESC ";
+$sql = "SELECT* FROM insc_tc WHERE verificado = 0 ORDER BY data DESC ";
 $res = mysqli_query($conexao, $sql);
 
 if(mysqli_num_rows($res) == 0){
@@ -60,11 +61,15 @@ if(mysqli_num_rows($res) == 0){
 
 while($elemento = mysqli_fetch_row($res)){
     $id = $elemento[0];
-    $assunto = $elemento[1];
-    $mensagem = $elemento[2];
+    $nome = $elemento[1];
+    $idade = $elemento[2];
     $email = $elemento[3];
-    $verificado = $elemento[4];
-    $data = $elemento[4];
+    $cidade = $elemento[4];
+    $genero = $elemento[5];
+    $area = $elemento[6];
+    $voce = $elemento[7];
+    $data = $elemento[8];
+    $verificado = $elemento[9];
 
     $dia = substr($data, 8);
     $mes = substr($data, 5, 2);
@@ -97,38 +102,58 @@ while($elemento = mysqli_fetch_row($res)){
     }
 
     echo "
-    <a href='view/ec_ver.php?num1=".$n1."&cod=".$id."'>
+    <a href='view/tc_ver.php?num1=".$n1."&cod=".$id."'>
       <div class='box'>
-          <h2>$assunto </h2>
-          <h3>Enviado por <b>$email</b> em $dia de $mes de $ano</h3>
-          <p>$mensagem</p>
+          <p><b>Nome: </b>$nome </p>
+          <p><b>Idade: </b>$idade anos</p>
+          <p><b>E-mail: </b>$email </p>
+          <p><b>Cidade: </b>$cidade </p>
+          <p><b>Gênero: </b>$genero </p>
+          <p><b>Área de Atuação: </b>$area </p>
+          <p><b>Sobre a pessoa: </b>$voce </p>
+          <p><b>Envio do formulário: </b>$dia de $mes de $ano </p>
       </div>
     </a>
     <br><br>
   ";
-  }
+}
 
 echo "<h2>Mensagens verificadas</h2>";
 
 include '../../assets/conexao.inc';
-$sql_ver = "SELECT* FROM insc_ctt WHERE verificado = 1 ORDER BY data DESC ";
+$sql_ver = "SELECT* FROM insc_tc WHERE verificado = 1 ORDER BY data DESC ";
 $res_ver = mysqli_query($conexao, $sql_ver);
-
 if(mysqli_num_rows($res_ver) == 0){
   echo "<center><h3 style='color: #353839'>Não há mensagens verificadas</h3></center>";
 }
 
   while($elemento_ver = mysqli_fetch_row($res_ver)){
     $id_ver = $elemento_ver[0];
-    $assunto_ver = $elemento_ver[1];
-    $mensagem_ver = $elemento_ver[2];
+    $nome_ver = $elemento_ver[1];
+    $idade_ver = $elemento_ver[2];
     $email_ver = $elemento_ver[3];
-    $verificado_ver = $elemento_ver[5];
-    $data_ver = $elemento_ver[4];
+    $cidade_ver = $elemento_ver[4];
+    $genero_ver = $elemento_ver[5];
+    $area_ver = $elemento_ver[6];
+    $voce_ver = $elemento_ver[7];
+    $data_ver = $elemento_ver[8];
+    $verificado_ver = $elemento_ver[9];
 
-    $ctt_ver = "SELECT* FROM insc_ctt WHERE verificado = 1";
-    $res_ctt_ver = mysqli_query($conexao, $ctt_ver);
-    
+    $tc_ver = "SELECT* FROM insc_tc WHERE verificado = 1";
+    $res_tc_ver = mysqli_query($conexao, $tc_ver);
+    while($elemento_tc_ver = mysqli_fetch_row($res_tc_ver)){
+      $id_ver = $elemento_tc_ver[0];
+      $nome_ver = $elemento_tc_ver[1];
+      $idade_ver = $elemento_tc_ver[2];
+      $email_ver = $elemento_tc_ver[3];
+      $cidade_ver = $elemento_tc_ver[4];
+      $genero_ver = $elemento_tc_ver[5];
+      $area_ver = $elemento_tc_ver[6];
+      $voce_ver = $elemento_tc_ver[7];
+      $data_ver = $elemento_tc_ver[8];
+      $verificado_ver = $elemento_tc_ver[9];
+    }
+
     $dia_ver = substr($data_ver, 8);
     $mes_ver = substr($data_ver, 5, 2);
     $ano_ver = substr($data_ver, 0, 4);
@@ -160,11 +185,16 @@ if(mysqli_num_rows($res_ver) == 0){
     }
 
     echo "
-    <a href='ec_veri.php?num1=".$n1."&cod=".$id_ver."'>
+    <a href='tc_veri.php?num1=".$n1."&cod=".$id_ver."'>
       <div class='box'>
-          <h2>$assunto_ver </h2>
-          <h3>Enviado por <b>$email_ver</b> em $dia_ver de $mes_ver de $ano_ver</h3>
-          <p>$mensagem_ver</p>
+          <p><b>Nome: </b>$nome_ver </p>
+          <p><b>Idade: </b>$idade_ver anos</p>
+          <p><b>E-mail: </b>$email_ver </p>
+          <p><b>Cidade: </b>$cidade_ver </p>
+          <p><b>Gênero: </b>$genero_ver </p>
+          <p><b>Área de Atuação: </b>$area_ver </p>
+          <p><b>Sobre a pessoa: </b>$voce_ver </p>
+          <p><b>Envio do formulário: </b>$dia_ver de $mes_ver de $ano_ver </p>
       </div>
     </a>
     <br><br>
