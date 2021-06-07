@@ -55,7 +55,7 @@ if(isset($_SESSION["numLogin"])){
 
     $codigo = $_GET['cod'];
 
-    $sql_ver = "SELECT* FROM insc_ctt WHERE id = $codigo ";
+    $sql_ver = "SELECT * FROM insc_ctt WHERE id = $codigo";
     $res_ver = mysqli_query($conexao, $sql_ver);
 
   while($elemento_ver = mysqli_fetch_row($res_ver)){

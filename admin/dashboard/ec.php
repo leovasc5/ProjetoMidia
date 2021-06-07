@@ -22,20 +22,20 @@ if(isset($_SESSION["numLogin"])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../img/logo.ico" />
+    <link rel="shortcut icon" href="../../img/logo.ico" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-    <link href="../index.css" rel="stylesheet" type="text/css">
-    <link href="../bar.css" rel="stylesheet" type="text/css">
-    <link href="../parceiros.css" rel="stylesheet">
-    <link href="../button.css" rel="stylesheet">
-    <link href="div.css" rel="stylesheet">
+    <link href="../../css/index.css" rel="stylesheet" type="text/css">
+    <link href="../../css/bar.css" rel="stylesheet" type="text/css">
+    <link href="../../css/parceiros.css" rel="stylesheet">
+    <link href="../../css/button.css" rel="stylesheet">
+    <link href="../../css/admin/div.css" rel="stylesheet">
     <title>ADM - Projeto Midia</title>
 </head>
 <body>
     
 <header class="header">
-  <img src="../img\logo.png" id="logo1" title="Projeto Midia">
+  <img src="../../img\logo.png" id="logo1" title="Projeto Midia">
   <input class="menu-btn" type="checkbox" id="menu-btn" />
   <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
   <ul class="menu">
@@ -50,7 +50,7 @@ if(isset($_SESSION["numLogin"])){
 <h2>Mensagens não verificados</h2>
 <?php
 
-include 'conexao.inc';
+include '../../assets/conexao.inc';
 $sql = "SELECT* FROM insc_ctt WHERE verificado = 0 ORDER BY data DESC ";
 $res = mysqli_query($conexao, $sql);
 
@@ -110,7 +110,7 @@ while($elemento = mysqli_fetch_row($res)){
 
 echo "<h2>Mensagens verificadas</h2>";
 
-include 'conexao.inc';
+include '../../assets/conexao.inc';
 $sql_ver = "SELECT* FROM insc_ctt WHERE verificado = 1 ORDER BY data DESC ";
 $res_ver = mysqli_query($conexao, $sql_ver);
 

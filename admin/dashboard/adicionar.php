@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../alert1.js"></script>
-    <link rel="stylesheet" href="../alert1.css">
+    <script src="../../js/alert1.js"></script>
+    <link rel="stylesheet" href="../../css/alert1.css">
     <title>ADM - Projeto Midia</title>
 </head>
 <body>
@@ -19,8 +19,9 @@
     $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $passe = filter_input(INPUT_POST, 'passe', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_EMAIL);
+    $senha = md5($senha);
 
-    include 'conexao.inc';
+    include '../../assets/conexao.inc';
     $sql_nome = "SELECT* FROM adms WHERE palavra_passe = '$passe'";
     $resultado = mysqli_query($conexao, $sql_nome);
     $numero = mysqli_num_rows($resultado);
@@ -32,7 +33,7 @@
           }
           erro_formulario();
         </script>";
-        header('Refresh: 4; URL=index.php');
+        header('Refresh: 4; URL=../index.html');
     }else{
       $sql = "INSERT INTO adms VALUES (NULL, '$passe', '$senha', '$nome')";
       $res = mysqli_query($conexao, $sql);
@@ -42,7 +43,7 @@
       }
       envio_formulario();
     </script>";
-    header('Refresh: 4; URL=index.php');
+    header('Refresh: 4; URL=../index.html');
 
 
     }
