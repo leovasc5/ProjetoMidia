@@ -29,7 +29,7 @@ if(isset($_SESSION["numLogin"])){
     <link href="../../../css/index.css" rel="stylesheet" type="text/css">
     <link href="../../../css/bar.css" rel="stylesheet" type="text/css">
     <link href="../../../css/parceiros.css" rel="stylesheet">
-    <link href="../../../css/button.css" rel="stylesheet">
+    <link href="../../../css/admin/button.css" rel="stylesheet">
     <link href="../../../css/admin/div.css" rel="stylesheet">
     <title>ADM - Projeto Midia</title>
 </head>
@@ -121,7 +121,7 @@ if(isset($_SESSION["numLogin"])){
 
 ?>
 <center>
-<button name='verificar' class="box">
+<button name='verificar'>
         <span></span>
         <span></span>
         <span></span>
