@@ -68,7 +68,7 @@ while($elemento = mysqli_fetch_row($res)){
     $nome = $elemento[3];
 
       echo "
-    <a href='equipe_excluir.php?num1=".$n1."&cod=".$id."'>
+    <a href='controller/equipe_excluir.php?num1=".$n1."&cod=".$id."'>
       <div class='box'>
           <p><b>Nome: </b>$nome </p>
           <p><b>Palavra-Passe: </b>$passe</p>

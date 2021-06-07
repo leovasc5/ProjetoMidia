@@ -40,7 +40,7 @@ if(isset($_SESSION["numLogin"])){
   <input class="menu-btn" type="checkbox" id="menu-btn" />
   <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
   <ul class="menu">
-    <li><a href="ec.php?<?php echo 'num1='.$n1; ?>" id='QS' class="neg">VOLTAR</a></li>
+    <li><a href="../ec.php?<?php echo 'num1='.$n1; ?>" id='QS' class="neg">VOLTAR</a></li>
     <li><a href="#c2" id='EQ' onmouseover="this.style.backgroundColor='#ff0000'; this.style.color='#ffffff'" 
     onmouseout="this.style.backgroundColor='#ffffff';this.style.color='#353839'" onclick="location.href='destroy.php'">SAIR</a></li>
   </ul>
