@@ -185,7 +185,7 @@ if(mysqli_num_rows($res_ver) == 0){
     }
 
     echo "
-    <a href='tc_veri.php?num1=".$n1."&cod=".$id_ver."'>
+    <a href='view/tc_veri.php?num1=".$n1."&cod=".$id_ver."'>
       <div class='box'>
           <p><b>Nome: </b>$nome_ver </p>
           <p><b>Idade: </b>$idade_ver anos</p>

@@ -139,7 +139,7 @@ if(isset($_SESSION["numLogin"])){
             include 'conexao.inc';
             $sql = "UPDATE insc_ctt SET verificado = 1 WHERE id = $codigo";
             $res = mysqli_query($conexao, $sql);
-            header("Location:ec.php?num1=$n1");
+            header("Location:../ec.php?num1=$n1");
             echo mysqli_error($conexao);
         }catch (Exception $error){
 

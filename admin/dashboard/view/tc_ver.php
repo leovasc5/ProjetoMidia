@@ -152,11 +152,11 @@ while($elemento = mysqli_fetch_row($res)){
 
     if(isset($_POST['verificar'])){
         try{
-            include 'conexao.inc';
+            include '../../../assets/conexao.inc';
             $codigo = $_GET['cod'];
             $sql = "UPDATE insc_tc SET verificado = 1 WHERE id = $codigo";
             $res = mysqli_query($conexao, $sql);
-            header("Location:tc.php?num1=$n1");
+            header("Location:../tc.php?num1=$n1");
         }catch (Exception $error){
 
         }

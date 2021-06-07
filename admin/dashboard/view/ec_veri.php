@@ -26,11 +26,11 @@ if(isset($_SESSION["numLogin"])){
     <link rel="shortcut icon" href="../img/logo.ico" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-    <link href="../index.css" rel="stylesheet" type="text/css">
-    <link href="../bar.css" rel="stylesheet" type="text/css">
-    <link href="../parceiros.css" rel="stylesheet">
-    <link href="button.css" rel="stylesheet">
-    <link href="div.css" rel="stylesheet">
+    <link href="../../../css/index.css" rel="stylesheet" type="text/css">
+    <link href="../../../css/bar.css" rel="stylesheet" type="text/css">
+    <link href="../../../css/parceiros.css" rel="stylesheet">
+    <link href="../../../css/admin/button.css" rel="stylesheet">
+    <link href="../../../css/admin/div.css" rel="stylesheet">
     <title>ADM - Projeto Midia</title>
 </head>
 <body>
@@ -51,7 +51,7 @@ if(isset($_SESSION["numLogin"])){
 <form name="mensagem" action="<?php echo $_SERVER['PHP_SELF'].'?num1='.$n1.'&cod='.$_GET['cod']?>" method='POST'>
     <?php
 
-    include 'conexao.inc';
+    include '../../../assets/conexao.inc';
 
     $codigo = $_GET['cod'];
 
@@ -139,7 +139,7 @@ if(isset($_SESSION["numLogin"])){
             include 'conexao.inc';
             $sql = "UPDATE insc_ctt SET verificado = 0 WHERE id = $codigo";
             $res = mysqli_query($conexao, $sql);
-            header("Location:ec.php?num1=$n1");
+            header("Location:../ec.php?num1=$n1");
             echo mysqli_error($conexao);
         }catch (Exception $error){
 

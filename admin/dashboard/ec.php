@@ -160,7 +160,7 @@ if(mysqli_num_rows($res_ver) == 0){
     }
 
     echo "
-    <a href='ec_veri.php?num1=".$n1."&cod=".$id_ver."'>
+    <a href='view/ec_veri.php?num1=".$n1."&cod=".$id_ver."'>
       <div class='box'>
           <h2>$assunto_ver </h2>
           <h3>Enviado por <b>$email_ver</b> em $dia_ver de $mes_ver de $ano_ver</h3>
